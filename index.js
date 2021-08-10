@@ -7,8 +7,7 @@ async function getCharacters() {
     let data = await response.json();
     let html = '';
 
-    data.results.forEach(character => {
-        console.log(character);
+    for (const character of data.results) {       
         let element = `<div>
             <h1>${character.name}</h1>
             <h2>Planet</h2>
@@ -16,7 +15,7 @@ async function getCharacters() {
         </div>`;
 
         html += element;
-    });
+    }
 
     let container = document.querySelector('.main-container');
     container.innerHTML = html;
