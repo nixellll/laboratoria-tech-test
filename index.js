@@ -1,8 +1,8 @@
 const url = "https://swapi.dev/api/people";
 
-test();
+getCharacters();
 
-async function test() {
+async function getCharacters() {
     let response = await fetch(url);
     let data = await response.json();
     let html = '';
@@ -10,12 +10,9 @@ async function test() {
     data.results.forEach(character => {
         console.log(character);
         let element = `<div>
-        <h1>${character.name}</h1>
-        <h2>Films</h2>
-        <ul class="films">
-            <li>Film 1</li>
-            <li>Film 2</li>
-        </ul>  
+            <h1>${character.name}</h1>
+            <h2>Planet</h2>
+            <p>Planet Earth</p>  
         </div>`;
 
         html += element;
